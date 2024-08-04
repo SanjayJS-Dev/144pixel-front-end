@@ -89,7 +89,7 @@ const App = () => {
             <span className="mt-2 space-grotesk-400 text-sm md:text-xl select-none font-light px-10 py-3 border rounded-md w-fit hover:rounded-3xl hover:bg-white hover:text-black transition-all duration-500"> BOOK NOW </span>
           </div>
 
-          <div className="w-full flex items-center justify-between absolute bottom-36 text-white outfit select-none">
+          <div className="w-full flex items-center justify-between absolute bottom-10 text-white outfit select-none">
             <IconButton sx={{ marginLeft: 5 }} onClick={() => { image == 0 ? setImage(slides.length - 1) : setImage(image - 1) }}>
               <NavigateBefore fontSize='large' sx={{ color: 'gray' }} />
             </IconButton>
