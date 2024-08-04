@@ -58,7 +58,7 @@ const App = () => {
 
   return (
     <>
-      <div className="w-full h-screen transparent overflow-hidden" onClick={() => menu && openMenu(false)}>
+      <div className="w-full h-dvh transparent overflow-hidden" onClick={() => menu && openMenu(false)}>
         <div className="py-5 md:py-10 top-0 container z-50 flex flex-wrap justify-between items-center">
           <span className="text-2xl text-white select-none space-grotesk-700 flex gap-2 items-center"> MEDIAGROOTS <AddAPhoto /></span>
           <div className="md:hidden rounded-full z-50">
@@ -81,15 +81,15 @@ const App = () => {
             <Link to={"#"} className="flex gap-2 p-2 items-center hover:text-teal-200 hover:font-semibold transition duration-500"> <Phone /> Contact  </Link>
           </div>
         </div>
-        <div className="absolute top-0 -z-0 flex flex-col justify-center h-screen w-full text-white">
+        <div className="absolute top-0 -z-0 flex flex-col justify-center h-dvh w-full text-white">
 
-          <div className="flex flex-col h-screen justify-center gap-2 container">
+          <div className="flex flex-col h-dvh justify-center gap-2 container">
             <span data-aos="fade-down" className="space-grotesk-700 text-xl md:text-5xl font-black select-none"> AD FILMS | CINEMATOGRAPHY </span>
             <span data-aos="fade-up" className="space-grotesk-400 text-md md:text-3xl font-medium select-none"> Based nowhere, Found everywhere </span>
-            <span className="mt-2 space-grotesk-400 text-sm md:text-xl select-none font-light px-10 py-3 border rounded-md w-fit hover:rounded-3xl hover:bg-white hover:text-black transition-all duration-500"> BOOK NOW </span>
+            <span className="mt-2 space-grotesk-400 text-sm md:text-xl select-none font-light px-10 py-3 border rounded-md w-fit hover:rounded-3xl hover:bg-white hover:text-black transition-all duration-500 cursor-pointer"> BOOK NOW </span>
           </div>
 
-          <div className="w-full flex items-center justify-between absolute bottom-10 text-white outfit select-none">
+          <div className="w-full flex items-center justify-between absolute bottom-5 text-white outfit select-none">
             <IconButton sx={{ marginLeft: 5 }} onClick={() => { image == 0 ? setImage(slides.length - 1) : setImage(image - 1) }}>
               <NavigateBefore fontSize='large' sx={{ color: 'gray' }} />
             </IconButton>
@@ -109,9 +109,13 @@ const App = () => {
       </div>
       {
         slides.map((slide, index) => (
-          <img key={index} src={slide} className={`select-none ${index == image ? "opacity-100" : "opacity-0"} absolute top-0 -z-50 w-full h-screen object-cover transition-opacity duration-1000 overflow-y-hidden`} />
+          <img key={index} src={slide} className={`select-none ${index == image ? "opacity-100" : "opacity-0"} absolute top-0 -z-50 w-full h-dvh object-cover transition-opacity duration-1000 overflow-y-hidden`} />
         ))
       }
+
+      <div className="h-dvh">
+        
+      </div>
     </>
   );
 }
