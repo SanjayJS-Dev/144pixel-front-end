@@ -1,6 +1,18 @@
 import AOS from 'aos';
 import React, { useEffect, useState } from 'react';
-import { Close, Home, Menu, Info, Instagram, Phone, WebStories, AddAPhoto, KeyboardDoubleArrowDown, NavigateBefore, NavigateNext } from "@mui/icons-material"
+import {
+  Close,
+  Home,
+  Menu,
+  Info,
+  Instagram,
+  Phone,
+  WebStories,
+  AddAPhoto,
+  KeyboardDoubleArrowDown,
+  NavigateBefore,
+  NavigateNext
+} from "@mui/icons-material"
 import 'aos/dist/aos.css';
 import './App.css';
 import pic1 from './assets/images/cover1.jpg'
@@ -27,6 +39,10 @@ const App = () => {
   }
 
   useEffect(() => {
+    setTimeout(()=>{if (image==slides.length-1) setImage(0); else setImage(image+1)},3000)
+  })
+
+  useEffect(() => {
     AOS.init({
       duration: 1200,
       offset: 200,
@@ -37,7 +53,7 @@ const App = () => {
 
   return (
     <>
-      <div className="w-full h-screen transparent overflow-hidden">
+      <div className="w-full h-screen transparent overflow-hidden" onClick={() => menu && openMenu(false)}>
         <div className="py-5 md:py-10 top-0 container z-50 flex flex-wrap justify-between items-center">
           <span className="text-2xl text-white select-none space-grotesk-700 flex gap-2 items-center"> MEDIAGROOTS <AddAPhoto /></span>
           <div className="md:hidden rounded-full z-50">
@@ -68,13 +84,13 @@ const App = () => {
             <span className="mt-2 space-grotesk-400 text-sm md:text-xl select-none font-light px-10 py-3 border rounded-md w-fit hover:rounded-3xl hover:bg-white hover:text-black transition-all duration-500"> BOOK NOW </span>
           </div>
 
-          <div className="w-full flex items-center justify-between absolute bottom-36 text-white outfit">
-            <IconButton sx={{marginLeft:5}} onClick={()=>{image==0?setImage(slides.length-1):setImage(image-1)}}>
-              <NavigateBefore fontSize='large' sx={{color:'gray'}}/>
+          <div className="w-full flex items-center justify-between absolute bottom-36 text-white outfit select-none">
+            <IconButton sx={{ marginLeft: 5 }} onClick={() => { image == 0 ? setImage(slides.length - 1) : setImage(image - 1) }}>
+              <NavigateBefore fontSize='large' sx={{ color: 'gray' }} />
             </IconButton>
-            {(image+1)+" / "+slides.length}
-            <IconButton sx={{marginRight:5}} onClick={()=>{image==slides.length-1?setImage(0):setImage(image+1)}}>
-              <NavigateNext fontSize='large' sx={{color:'gray'}}/>
+            {(image + 1) + " / " + slides.length}
+            <IconButton sx={{ marginRight: 5 }} onClick={() => { image == slides.length - 1 ? setImage(0) : setImage(image + 1) }}>
+              <NavigateNext fontSize='large' sx={{ color: 'gray' }} />
             </IconButton>
           </div>
 
@@ -92,9 +108,6 @@ const App = () => {
           <img key={index} src={slide} className={`select-none ${index == image ? "opacity-100" : "opacity-0"} absolute top-0 -z-50 w-full h-screen object-cover transition-all duration-1000 overflow-y-hidden`} />
         ))
       }
-      <div className="h-dvh">
-
-      </div>
     </>
   );
 }
