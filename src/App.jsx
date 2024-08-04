@@ -39,7 +39,12 @@ const App = () => {
   }
 
   useEffect(() => {
-    setTimeout(()=>{if (image==slides.length-1) setImage(0); else setImage(image+1)},3000)
+    setTimeout(() => {
+      if (image == slides.length - 1)
+        setImage(0)
+      else
+        setImage(image + 1)
+    }, 3000)
   })
 
   useEffect(() => {
@@ -88,7 +93,6 @@ const App = () => {
             <IconButton sx={{ marginLeft: 5 }} onClick={() => { image == 0 ? setImage(slides.length - 1) : setImage(image - 1) }}>
               <NavigateBefore fontSize='large' sx={{ color: 'gray' }} />
             </IconButton>
-            {(image + 1) + " / " + slides.length}
             <IconButton sx={{ marginRight: 5 }} onClick={() => { image == slides.length - 1 ? setImage(0) : setImage(image + 1) }}>
               <NavigateNext fontSize='large' sx={{ color: 'gray' }} />
             </IconButton>
@@ -105,7 +109,7 @@ const App = () => {
       </div>
       {
         slides.map((slide, index) => (
-          <img key={index} src={slide} className={`select-none ${index == image ? "opacity-100" : "opacity-0"} absolute top-0 -z-50 w-full h-screen object-cover transition-all duration-1000 overflow-y-hidden`} />
+          <img key={index} src={slide} className={`select-none ${index == image ? "opacity-100" : "opacity-0"} absolute top-0 -z-50 w-full h-screen object-cover transition-opacity duration-1000 overflow-y-hidden`} />
         ))
       }
     </>

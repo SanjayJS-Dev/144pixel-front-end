@@ -3,7 +3,9 @@ import App from './App';
 
 const HomePage = () => {
     return (
-        <App/>
+        <Suspense fallback={<Loader/>}>
+            <App/>
+        </Suspense>
     );
 }
 
